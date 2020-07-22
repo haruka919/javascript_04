@@ -17,4 +17,37 @@
   window.addEventListener('load', () => {
     info.hidden = true;
   });
+
+  // クイズを開始する
+  startButton.addEventListener('click', () => {
+    startQuiz();
+  });
+
+  // クイズデータを取得する
+  const startQuiz = () => {
+    // ロード中の表示
+
+    // クイズデータを取得
+
+    // 取得したクイズデータをセット
+    setQuiz();
+  }
+
+
+  // クイズをセット
+  const setQuiz = () => {
+    // クイズを作成 or 最終問題であればクイズを終了
+  }
+
+
+  // クイズを作成
+  const makeQuiz = () => {
+
+  }
+
+
+  // 終了画面
+  const finishQuiz = () => {
+
+  }
 })();
