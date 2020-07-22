@@ -12,4 +12,9 @@
     currentQuizIndex: 0,
     correctCount: 0
   }
+
+  // 初期表示
+  window.addEventListener('load', () => {
+    info.hidden = true;
+  });
 })();
