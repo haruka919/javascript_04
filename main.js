@@ -104,6 +104,19 @@
 
   // 終了画面
   const finishQuiz = () => {
+    info.hidden = true;
+    title.textContent = `あなたの正答数は${quizState.correctCount}問です。`;
+    text.textContent = '再度チャレンジしたい場合は以下をクリック！！';
 
+    // ホームへ戻るボタンを作成
+    let backHomeButton = document.createElement('button');
+    document.querySelector('.container').appendChild(backHomeButton);
+    backHomeButton.textContent = 'ホームに戻る';
+
+    // ホームへ戻るボタンをクリックしたら、ホームボタンを削除・初期化処理を行う
+    backHomeButton.addEventListener('click', (e) => {
+      backHomeButton.remove();
+      reset();
+    })
   }
 })();
