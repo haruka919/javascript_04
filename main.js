@@ -26,11 +26,20 @@
   // クイズデータを取得する
   const startQuiz = () => {
     // ロード中の表示
+    title.textContent = '取得中';
+    text.textContent = '少々お待ちください';
+    startButton.hidden = true;
 
     // クイズデータを取得
+    fetch(API_URL)
+      .then((response) => response.json())
 
-    // 取得したクイズデータをセット
-    setQuiz();
+      // クイズデータを取得したら、クイズ情報をリセットする
+      .then((data) => {
+        quizState.quizzes = data.results;
+        // 取得したクイズデータをセット
+        setQuiz();
+      });
   }
 
 
