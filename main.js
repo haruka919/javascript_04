@@ -46,6 +46,12 @@
   // クイズをセット
   const setQuiz = () => {
     // クイズを作成 or 最終問題であればクイズを終了
+    if (quizState.currentQuizIndex < quizState.quizzes.length) {
+      let currentQuiz = quizState.quizzes[quizState.currentQuizIndex];
+      makeQuiz(quizState.currentQuizIndex, currentQuiz);
+    } else {
+      finishQuiz();
+    }
   }
 
 
