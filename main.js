@@ -85,9 +85,21 @@
   }
 
 
-  // 答えをランダムに並び替える
-  const makeAnswers = () => {
+  // ランダムに並べた回答リストを作成
+  const makeAnswers = (quiz) => {
+    const answers = [quiz.correct_answer, ...quiz.incorrect_answers];
+    return shuffle(answers);
   }
+
+  // 配列をシャッフルする
+  const shuffle = ([...arr]) => {
+    let m = arr.length;
+    while (m) {
+      const i = Math.floor(Math.random() * m--);
+      [arr[m], arr[i]] = [arr[i], arr[m]];
+    }
+    return arr;
+  };
 
 
   // 終了画面
