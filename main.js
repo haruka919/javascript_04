@@ -1,5 +1,5 @@
 (() => {
-  const API_URL = 'https://opentdb.com/api.php?amount=10';
+  const API_URL = 'https://opentdb.com/api.php?amount=10&type=multiple';
   const title = document.querySelector('.title');
   const text = document.querySelector('.text');
   const info = document.querySelector('.info');
@@ -15,8 +15,16 @@
 
   // 初期表示
   window.addEventListener('load', () => {
-    info.hidden = true;
+    reset();
   });
+
+  // 初期化処理
+  const reset = () => {
+    title.textContent = 'ようこそ';
+    text.textContent = '下記ボタンをクリック';
+    startButton.hidden = false;
+    info.hidden = true;
+  }
 
   // クイズを開始する
   startButton.addEventListener('click', () => {
@@ -37,6 +45,8 @@
       // クイズデータを取得したら、クイズ情報をリセットする
       .then((data) => {
         quizState.quizzes = data.results;
+        quizState.currentQuizIndex = 0;
+        quizState.correctCount = 0;
         // 取得したクイズデータをセット
         setQuiz();
       });
@@ -45,6 +55,9 @@
 
   // クイズをセット
   const setQuiz = () => {
+    // 前回の回答リストをリセット
+    answerList.innerHTML = '';
+
     // クイズ画面 or 最終問題であれば終了画面を表示
     if (quizState.currentQuizIndex < quizState.quizzes.length) {
       let currentQuiz = quizState.quizzes[quizState.currentQuizIndex];
