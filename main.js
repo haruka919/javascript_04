@@ -7,7 +7,7 @@
   const startButton = document.querySelector('.start');
 
   // クイズに関する情報
-  const quizState = {
+  const quizInfo = {
     quizzes: [],
     currentQuizIndex: 0,
     correctCount: 0
@@ -44,9 +44,9 @@
 
       // クイズデータを取得したら、クイズ情報をリセットする
       .then((data) => {
-        quizState.quizzes = data.results;
-        quizState.currentQuizIndex = 0;
-        quizState.correctCount = 0;
+        quizInfo.quizzes = data.results;
+        quizInfo.currentQuizIndex = 0;
+        quizInfo.correctCount = 0;
         // 取得したクイズデータをセット
         setQuiz();
       });
@@ -59,9 +59,9 @@
     answerList.innerHTML = '';
 
     // クイズ画面 or 最終問題であれば終了画面を表示
-    if (quizState.currentQuizIndex < quizState.quizzes.length) {
-      let currentQuiz = quizState.quizzes[quizState.currentQuizIndex];
-      makeQuiz(quizState.currentQuizIndex, currentQuiz);
+    if (quizInfo.currentQuizIndex < quizInfo.quizzes.length) {
+      let currentQuiz = quizInfo.quizzes[quizInfo.currentQuizIndex];
+      makeQuiz(quizInfo.currentQuizIndex, currentQuiz);
     } else {
       finishQuiz();
     }
