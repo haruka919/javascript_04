@@ -72,8 +72,8 @@
   const makeQuiz = (index, quiz) => {
     title.textContent = `問題${index + 1}`;
     info.hidden = false;
-    document.querySelector('.category span').textContent = quiz.category;
-    document.querySelector('.difficulty span').textContent = quiz.difficulty;
+    document.getElementById('category').textContent = quiz.category;
+    document.getElementById('difficulty').textContent = quiz.difficulty;
     text.innerHTML = quiz.question;
 
     // ランダムに並べた回答リスト（配列）を取得
@@ -88,10 +88,10 @@
       answerButton.addEventListener('click', (e) => {
         // 正解であれば、正答数カウントを1増やす
         if (e.target.textContent === quiz.correct_answer) {
-          quizState.correctCount++;
+          quizInfo.correctCount++;
         }
         // インデックスカウントを増やし、次のクイズをセット
-        quizState.currentQuizIndex++;
+        quizInfo.currentQuizIndex++;
         setQuiz();
       });
     });
@@ -118,7 +118,7 @@
   // 終了画面
   const finishQuiz = () => {
     info.hidden = true;
-    title.textContent = `あなたの正答数は${quizState.correctCount}問です。`;
+    title.textContent = `あなたの正答数は${quizInfo.correctCount}問です。`;
     text.textContent = '再度チャレンジしたい場合は以下をクリック！！';
 
     // ホームへ戻るボタンを作成
