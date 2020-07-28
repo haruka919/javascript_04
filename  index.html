@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>クイズアプリ</title>
+  <style>
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .info {
+      list-style: none;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 0;
+    }
+    .answer-list button {
+      display: block;
+      margin-bottom: .5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">ようこそ</h1>
+    <ul class="info">
+      <li>[ジャンル]<span id="category"></span></li>
+      <li>[難易度]<span id="difficulty"></span></li>
+    </ul>
+    <hr>
+    <p class="text">下記ボタンをクリック</p>
+    <hr>
+    <button class="start">開始</button>
+    <div class="answer-list">
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
